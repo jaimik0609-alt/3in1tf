@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090909">
+<title>TAPFLOW — Digital Business Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="./"><span class="brand-icon">T</span>TAPFLOW</a><span class="top-label">DIGITAL BUSINESS CARD</span></header>
+
+<main>
+<section id="builderPage" class="builder page">
+  <div class="intro">
+    <p class="eyebrow">YOUR BUSINESS. ONE TAP AWAY.</p>
+    <h1>Your digital<br><span>first impression.</span></h1>
+    <p class="intro-copy">Bring your reviews, social media and customers together in one beautiful business profile.</p>
+    <div class="ticks"><span>✓ No app required</span><span>✓ Works with QR & NFC</span></div>
+    <div class="intro-foot">T <span>ONE CARD. EVERY CONNECTION.</span></div>
+  </div>
+
+  <section class="form-card">
+    <div class="form-head"><div><p class="eyebrow">PROFILE BUILDER · 01</p><h2>Set up your profile</h2><p>Add your business details and publish your digital card.</p></div><span class="step">01 <i>/ 02</i></span></div>
+    <form id="businessForm" novalidate>
+      <div class="form-section">
+        <div class="section-title"><b>01</b><div><strong>Business details</strong><small>Introduce your business.</small></div></div>
+        <div class="upload-row"><div class="avatar" id="uploadAvatar">TF</div><div><label class="upload-btn" for="logoFile">Upload logo ＋</label><input hidden id="logoFile" type="file" accept="image/png,image/jpeg,image/webp"><small class="upload-hint">PNG, JPG or WEBP · Max 2 MB</small></div></div>
+        <label class="label" for="businessName">Business name <em>*</em></label><input id="businessName" maxlength="70" placeholder="e.g. The Coffee House" required>
+        <label class="label" for="description">Business description <span>OPTIONAL</span></label><textarea id="description" rows="2" maxlength="180" placeholder="A short line about what you do..."></textarea>
+        <label class="label" for="logoUrl">Public logo image URL <span>OPTIONAL</span></label><input id="logoUrl" type="url" placeholder="https://yourwebsite.com/logo.png">
+        <small class="hint">A public HTTPS image URL is needed for the logo to appear on every visitor's phone. Local uploads are preview-only.</small>
+      </div>
+      <div class="form-section">
+        <div class="section-title"><b>02</b><div><strong>Connect your business</strong><small>Where should customers find you?</small></div></div>
+        <label class="label" for="whatsapp">WhatsApp number <em>*</em></label><div class="prefix"><span>＋</span><input id="whatsapp" inputmode="tel" placeholder="91 98765 43210" required></div><small class="hint">Include country code, e.g. 919876543210</small>
+        <label class="label" for="instagram">Instagram URL <em>*</em></label><input id="instagram" type="url" placeholder="https://instagram.com/yourbusiness" required>
+        <label class="label" for="google">Google Review URL <em>*</em></label><input id="google" type="url" placeholder="https://g.page/r/your-review-link" required>
+        <label class="label" for="maps">Google Maps URL <span>OPTIONAL</span></label><input id="maps" type="url" placeholder="https://maps.app.goo.gl/your-location">
+      </div>
+      <div id="formError" class="error" role="alert" aria-live="polite"></div>
+      <button class="btn btn-dark publish" type="submit"><span>Save & Go Live</span><b>↗</b></button>
+      <p class="privacy">◈ No account needed. Your profile details are encoded into your unique link.</p>
+    </form>
+  </section>
+
+  <aside class="preview">
+    <div class="preview-title"><span>LIVE PREVIEW</span><b>● UPDATING</b></div>
+    <div class="phone"><div class="notch"></div><div class="screen">
+      <div class="preview-avatar" id="previewAvatar">TF</div><div class="welcome">WELCOME TO</div><h2 id="previewName">Your Business</h2>
+      <p id="previewDescription">Your business description will appear here.</p><hr>
+      <div class="sample"><i class="g">G</i><span><b>Google Reviews</b><small>Rate your experience</small></span><label>↗</label></div>
+      <div class="sample"><i class="ig">◎</i><span><b>Instagram</b><small>Follow our updates</small></span><label>↗</label></div>
+      <div class="sample"><i class="wa">◔</i><span><b>WhatsApp</b><small>Chat with us</small></span><label>↗</label></div>
+      <div class="sample"><i class="mp">⌖</i><span><b>Google Maps</b><small>Find our location</small></span><label>↗</label></div>
+      <div class="powered">POWERED BY <b>TAPFLOW</b></div>
+    </div></div>
+    <p class="preview-hint">This is what customers will see when they scan or tap your card.</p>
+  </aside>
+</section>
+
+<section id="livePage" class="live page" hidden>
+  <div class="public-wrap">
+    <div class="public-card">
+      <div class="public-avatar" id="publicAvatar">TF</div>
+      <div class="welcome">WELCOME TO</div>
+      <h2 id="publicName">Your Business</h2>
+      <p id="publicDescription" class="public-description"></p>
+      <nav class="public-links" aria-label="Business links">
+        <a id="reviewLink" class="public-link" target="_blank" rel="noopener noreferrer"><i class="g">G</i><b>Google Reviews</b><span>↗</span></a>
+        <a id="instagramLink" class="public-link" target="_blank" rel="noopener noreferrer"><i class="ig">◎</i><b>Instagram</b><span>↗</span></a>
+        <a id="whatsappLink" class="public-link" target="_blank" rel="noopener noreferrer"><i class="wa">◔</i><b>WhatsApp</b><span>↗</span></a>
+        <a id="mapsLink" class="public-link" target="_blank" rel="noopener noreferrer"><i class="mp">⌖</i><b>Google Maps</b><span>↗</span></a>
+      </nav>
+      <div class="powered">POWERED BY <b>TAPFLOW</b></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer"><span>© TAPFLOW</span><span>YOUR BUSINESS. ONE TAP AWAY.</span></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body></html>
